@@ -7,6 +7,7 @@ const INCREMENT_COUNTER =  'INCREMENT_COUNTER'
 export const inc = () => ({
     type: INCREMENT_COUNTER
 })
+
 export const dec = () => ({
     type: DECREMENT_COUNTER
 })

@@ -5,15 +5,18 @@ import App from './App';
 import {createStore, combineReducers} from 'redux'
 
 import counterReducer, {inc, dec, } from './store/counter'
+import todosReducer, {addTodo} from './store/todos'
 
 
 const store = createStore(
     combineReducers({
-      counter: counterReducer
+      counter: counterReducer,
+      todos: todosReducer
     }),
  window.__REDUX_DEVTOOLS_EXTENSION__ &&
  window.__REDUX_DEVTOOLS_EXTENSION__()
  )
+window.addTodo = (text) => store.dispatch(addTodo(text))
 
 window.inc = () => store.dispatch(inc())
 
