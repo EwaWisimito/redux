@@ -5,7 +5,7 @@ import App from './App';
 import {createStore, combineReducers} from 'redux'
 
 import counterReducer, {inc, dec, } from './store/counter'
-import todosReducer, {addTodo, toggleTodo} from './store/todos'
+import todosReducer, {addTodo, toggleTodo, deleteTodo} from './store/todos'
 
 
 const store = createStore(
@@ -19,6 +19,8 @@ const store = createStore(
 window.addTodo = (text) => store.dispatch(addTodo(text))
 
 window.toggleTodo = (id) => store.dispatch(toggleTodo(id))
+
+window.deleteTodo = (id) => store.dispatch(deleteTodo(id))
 
 window.inc = () => store.dispatch(inc())
 

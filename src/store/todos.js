@@ -2,6 +2,7 @@ let id = 0
 
 const ADD_TODO = 'ADD_TODO'
 const TOGGLE_TODO = 'TOGGLE_TODO'
+const DELETE_TODO = 'DELETE_TODO'
 
 const todosReducer = (state = [], action) => {
     switch (action.type) {
@@ -25,6 +26,11 @@ const todosReducer = (state = [], action) => {
                 ]
                 : todo
         })
+        case DELETE_TODO:
+        return state.filter(todo => {
+            const isSameId = todo.id !== action.id
+            return isSameId
+        })
         default:
             return state
 
@@ -42,5 +48,9 @@ export const toggleTodo = id =>({
     id: id
 })
 
+export const deleteTodo = id =>({
+    type: DELETE_TODO,
+    id: id
+})
 
 export default todosReducer
